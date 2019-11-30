@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Meincken
-image: /img/jumbotron.jpg
+image: /img/header-background.jpg
 heading: Front End Developer
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:
