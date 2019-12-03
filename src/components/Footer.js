@@ -1,17 +1,41 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from "styled-components";
 
 import Logo from "../img/logo.svg";
 import Instagram from "../img/social/instagram.svg";
 import Twitter from "../img/social/twitter.svg";
 
+const FooterBlock = styled.footer`
+  background: #000;
+
+  svg {
+    display: block;
+    fill: #a9cc17;
+    margin: 0 auto;
+    width: 150px;
+  }
+`;
+
+const Social = styled.div`
+  display: flex;
+  justify-content: center;
+
+  a {
+    display: inline-block;
+    margin: 0 10px;
+
+    svg {
+      max-width: 20px;
+    }
+  }
+`;
+
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <Logo />
-        </div>
+      <FooterBlock>
+        <Logo />
         <div className="content has-text-centered has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
             <div className="columns">
@@ -67,18 +91,18 @@ const Footer = class extends React.Component {
                   </ul>
                 </section>
               </div>
-              <div className="column is-4 social">
+              <Social>
                 <a title="twitter" href="https://twitter.com">
                   <Twitter />
                 </a>
                 <a title="instagram" href="https://instagram.com">
                   <Instagram />
                 </a>
-              </div>
+              </Social>
             </div>
           </div>
         </div>
-      </footer>
+      </FooterBlock>
     );
   }
 };

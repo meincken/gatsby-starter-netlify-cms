@@ -6,6 +6,14 @@ import styled from "styled-components";
 const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+
+  a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+  }
 
   svg {
     fill: #a9cc17;
