@@ -1,16 +1,29 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
+
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import "./reset.css";
-import "./all.sass";
+
+import { GlobalStyle } from "../shared/Global";
+
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  max-width: 1100px;
+  width: 100vw;
+  margin: 0 auto;
+`;
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
     <>
+      <GlobalStyle />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -40,7 +53,6 @@ const TemplateWrapper = ({ children }) => {
           color="#ff4400"
         />
         <meta name="theme-color" content="#fff" />
-
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
@@ -50,7 +62,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
-      <>{children}</>
+      <Main>{children}</Main>
       <Footer />
     </>
   );

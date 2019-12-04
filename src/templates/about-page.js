@@ -3,17 +3,24 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import styled from "styled-components";
+
+const Section = styled.section`
+  grid-column: span 12;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+`;
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <section className="section">
-      <div className="container">
-        <h2>{title}</h2>
-        <PageContent className="content" content={content} />
-      </div>
-    </section>
+    <Section>
+      <h2>{title}</h2>
+      <PageContent className="content" content={content} />
+    </Section>
   );
 };
 

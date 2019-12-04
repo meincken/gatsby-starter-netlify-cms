@@ -1,10 +1,82 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
+
+const HeroBlock = styled.div`
+  background-postion: top left;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 25vh;
+  margin-bottom: 20px;
+  min-height: 400px;
+`;
+
+const Section = styled.section`
+  .flex {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 20px;
+    max-width: 1100px;
+    width: 100vw;
+    margin: 0 auto;
+
+    .section-block {
+      margin-bottom: 40px;
+      grid-column: span 6;
+    }
+
+    a {
+      grid-column: span 12;
+    }
+  }
+`;
+
+const Blog = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  max-width: 1100px;
+  width: 100vw;
+  margin: 20px auto;
+
+  h3 {
+    grid-column: span 12;
+  }
+
+  header {
+    display: flex;
+    flex-flow: column;
+  }
+
+  article {
+    grid-column: span 4;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    a {
+      grid-column: span 12;
+      display: block;
+      margin-top: 10px;
+      text-align: left;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    grid-column: span 12;
+    text-align: center;
+    text-decoration: none;
+  }
+`;
 
 export const IndexPageTemplate = ({
   image,
@@ -16,96 +88,42 @@ export const IndexPageTemplate = ({
   intro
 }) => (
   <>
-    <div
-      className="full-width-image margin-top-0"
+    <HeroBlock
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-        height: "25vh",
-        minHeight: "400px"
+        })`
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          lineHeight: "1",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column"
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em"
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em"
-          }}
-        >
-          {subheading}
-        </h3>
+      <div>
+        <h1>{title}</h1>
+        <h3>{subheading}</h3>
       </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </HeroBlock>
+    <Section>
+      <div className="tile">
+        <h1 className="title">{mainpitch.title}</h1>
+        <h3 className="subtitle">{mainpitch.description}</h3>
       </div>
-    </section>
+
+      <h3>{heading}</h3>
+      <p>{description}</p>
+      <div className="flex">
+        <Features gridItems={intro.blurbs} />
+
+        <Link className="btn" to="/products">
+          See all products
+        </Link>
+      </div>
+
+      <Blog>
+        <h3>Latest stories</h3>
+        <BlogRoll />
+        <Link className="btn" to="/blog">
+          Read more
+        </Link>
+      </Blog>
+    </Section>
   </>
 );
 
