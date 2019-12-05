@@ -17,13 +17,17 @@ const HeroBlock = styled.div`
   height: 25vh;
   margin-bottom: 20px;
   min-height: 400px;
+  grid-column: span 12;
 `;
 
 const Section = styled.section`
+  grid-column: 3 / span 8;
+
   .flex {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 20px;
+
     max-width: 1100px;
     width: 100vw;
     margin: 0 auto;
@@ -43,8 +47,6 @@ const Blog = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 20px;
-  max-width: 1100px;
-  width: 100vw;
   margin: 20px auto;
 
   h3 {

@@ -6,7 +6,8 @@ import Content, { HTMLContent } from "../components/Content";
 import styled from "styled-components";
 
 const Section = styled.section`
-  grid-column: span 12;
+  grid-column: 3 / span 8;
+  margin: 0 auto;
 
   h2 {
     margin-bottom: 20px;

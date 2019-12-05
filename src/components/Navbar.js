@@ -3,11 +3,11 @@ import { Link } from "gatsby";
 import Logo from "../img/logo.svg";
 import styled from "styled-components";
 
-const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px 0;
-  text-align: center;
+const Nav = styled.nav`
+  background: #000;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
 
   a {
     display: inline-block;
@@ -19,6 +19,16 @@ const Container = styled.div`
     fill: #a9cc17;
     width: 150px;
   }
+`;
+
+const NavBarBrand = styled.div`
+  grid-column: 3 / span 8;
+  text-align: center;
+`;
+
+const NavBarMenu = styled.div`
+  grid-column: 3 / span 8;
+  text-align: center;
 `;
 
 const Navbar = class extends React.Component {
@@ -52,42 +62,36 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-      <nav
-        className="navbar is-transparent"
+      <Nav
+        className="sis-transparent"
         role="navigation"
         aria-label="main-navigation"
       >
-        <Container>
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <Logo />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
+        <NavBarBrand>
+          <Link to="/" className="navbar-item" title="Logo">
+            <Logo />
+          </Link>
+          {/* Hamburger menu */}
           <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+            data-target="navMenu"
+            onClick={() => this.toggleHamburger()}
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-            </div>
+            <span />
+            <span />
+            <span />
           </div>
-        </Container>
-      </nav>
+        </NavBarBrand>
+
+        <NavBarMenu id="navMenu" className={this.state.navBarActiveClass}>
+          <Link className="navbar-item" to="/about">
+            About
+          </Link>
+          <Link className="navbar-item" to="/blog">
+            Blog
+          </Link>
+        </NavBarMenu>
+      </Nav>
     );
   }
 };

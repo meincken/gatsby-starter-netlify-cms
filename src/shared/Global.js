@@ -96,17 +96,6 @@ export const bodyStyles = css`
   a {
     color: ${color.primary};
   }
-
-  #root {
-    display: grid;
-    overflow: hidden;
-  }
-
-  .container {
-    max-width: 1100px;
-    width: 100vw;
-    margin: 0 auto;
-  }
 `;
 
 export const GlobalStyle = createGlobalStyle`

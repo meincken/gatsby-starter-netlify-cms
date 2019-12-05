@@ -15,13 +15,13 @@ const FooterBlock = styled.footer`
   svg {
     display: block;
     fill: #a9cc17;
-    grid-column: span 12;
+    grid-column: 3 / span 8;
     margin: 0 auto;
     width: 150px;
   }
 
   .container {
-    grid-column: span 12;
+    grid-column: 3 / span 8;
   }
 
   ul {
