@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
+import GalleryRoll from "../components/GalleryRoll";
 
 const HeroBlock = styled.div`
   background-postion: top left;
@@ -121,7 +122,14 @@ export const IndexPageTemplate = ({
       <Blog>
         <h3>Latest stories</h3>
         <BlogRoll />
-        <Link className="btn" to="/blog">
+        <Link className="btn" to="/gallery">
+          Read more
+        </Link>
+      </Blog>
+      <Blog>
+        <h3>Gallery</h3>
+        <GalleryRoll />
+        <Link className="btn" to="/gallery">
           Read more
         </Link>
       </Blog>
