@@ -7,10 +7,6 @@ import styled from "styled-components";
 const Header = styled.header`
   position: relative;
 
-  .gatsby-image-wrapper {
-    display: flex;
-  }
-
   a {
     font-size: 50px;
     font-weight: bold;

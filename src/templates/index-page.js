@@ -105,9 +105,16 @@ const Gallery = styled.div`
     a {
       grid-column: span 12;
       display: block;
-      margin-top: 10px;
       text-align: left;
       text-decoration: none;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin: 0;
     }
   }
 
