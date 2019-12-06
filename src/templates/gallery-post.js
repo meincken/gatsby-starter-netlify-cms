@@ -5,6 +5,11 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import styled from "styled-components";
+
+const Section = styled.section`
+  grid-column: span 12;
+`;
 
 export const GalleryPostTemplate = ({
   content,
@@ -17,7 +22,7 @@ export const GalleryPostTemplate = ({
   const GalleryPostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <Section>
       {helmet || ""}
       <div className="container">
         <h1>{title}</h1>
@@ -36,7 +41,7 @@ export const GalleryPostTemplate = ({
           </div>
         ) : null}
       </div>
-    </section>
+    </Section>
   );
 };
 

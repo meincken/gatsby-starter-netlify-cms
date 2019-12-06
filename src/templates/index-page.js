@@ -81,6 +81,43 @@ const Blog = styled.div`
   }
 `;
 
+const Gallery = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  margin: 20px auto;
+
+  h3 {
+    grid-column: span 12;
+  }
+
+  header {
+    display: flex;
+    flex-flow: column;
+  }
+
+  article {
+    grid-column: span 6;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    a {
+      grid-column: span 12;
+      display: block;
+      margin-top: 10px;
+      text-align: left;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    grid-column: span 12;
+    text-align: center;
+    text-decoration: none;
+  }
+`;
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -126,13 +163,14 @@ export const IndexPageTemplate = ({
           Read more
         </Link>
       </Blog>
-      <Blog>
+
+      <Gallery>
         <h3>Gallery</h3>
         <GalleryRoll />
         <Link className="btn" to="/gallery">
-          Read more
+          See more
         </Link>
-      </Blog>
+      </Gallery>
     </Section>
   </>
 );

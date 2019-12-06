@@ -2,6 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import styled from "styled-components";
+
+const Header = styled.header`
+  position: relative;
+
+  .gatsby-image-wrapper {
+    display: flex;
+  }
+
+  a {
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+`;
 
 class GalleryRoll extends React.Component {
   render() {
@@ -18,31 +34,19 @@ class GalleryRoll extends React.Component {
                 post.frontmatter.featuredpost ? " is-featured" : ""
               }`}
             >
-              <header>
+              <Header>
                 {post.frontmatter.featuredimage ? (
-                  <div className="featured-thumbnail">
-                    <PreviewCompatibleImage
-                      imageInfo={{
-                        image: post.frontmatter.featuredimage,
-                        alt: `featured image thumbnail for post ${post.title}`
-                      }}
-                    />
-                  </div>
+                  <PreviewCompatibleImage
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `featured image thumbnail for post ${post.title}`
+                    }}
+                  />
                 ) : null}
-                <p className="post-meta">
-                  <Link className="title" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <br />
-                  <span className="subtitle">{post.frontmatter.date}</span>
-                </p>
-              </header>
-              <p>
-                {post.excerpt}
-                <Link className="button" to={post.fields.slug}>
-                  Keep Reading →
+                <Link className="title" to={post.fields.slug}>
+                  {post.frontmatter.title}
                 </Link>
-              </p>
+              </Header>
             </article>
           ))}
       </>
