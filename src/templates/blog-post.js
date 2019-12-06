@@ -5,6 +5,11 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import styled from "styled-components";
+
+const Section = styled.section`
+  grid-column: 3 / span 8;
+`;
 
 export const BlogPostTemplate = ({
   content,
@@ -17,26 +22,30 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <Section>
       {helmet || ""}
-      <div className="container">
-        <h1>{title}</h1>
-        <p>{description}</p>
+      <article>
+        <header>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </header>
         <PostContent content={content} />
-        {tags && tags.length ? (
-          <div style={{ marginTop: `4rem` }}>
-            <h4>Tags</h4>
-            <ul className="taglist">
-              {tags.map(tag => (
-                <li key={tag + `tag`}>
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-      </div>
-    </section>
+        <footer>
+          {tags && tags.length ? (
+            <div style={{ marginTop: `4rem` }}>
+              <h4>Tags</h4>
+              <ul className="taglist">
+                {tags.map(tag => (
+                  <li key={tag + `tag`}>
+                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </footer>
+      </article>
+    </Section>
   );
 };
 

@@ -9,9 +9,8 @@ const Header = styled.header`
   display: flex;
   flex-flow: column;
   height: 50vh;
-  min-height: 400px;
 
-  a {
+  > a {
     font-size: 50px;
     font-weight: bold;
     grid-column: span 12;

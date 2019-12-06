@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Nav = styled.nav`
   background: #000;
+  border-bottom: 1px solid #a9cc17;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 10px;
@@ -13,6 +14,7 @@ const Nav = styled.nav`
     display: inline-block;
     padding: 10px;
     text-decoration: none;
+    text-transform: uppercase;
   }
 
   svg {
@@ -63,7 +65,7 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <Nav
-        className="sis-transparent"
+        className="is-transparent"
         role="navigation"
         aria-label="main-navigation"
       >
