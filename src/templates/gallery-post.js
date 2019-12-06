@@ -13,6 +13,7 @@ const Section = styled.section`
 export const GalleryPostTemplate = ({
   content,
   contentComponent,
+  flickrgallery,
   description,
   tags,
   title,
@@ -35,8 +36,7 @@ GalleryPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object,
-  flickrgallery: propTypes.string
+  helmet: PropTypes.object
 };
 
 const GalleryPost = ({ data }) => {
@@ -82,7 +82,6 @@ export const pageQuery = graphql`
         title
         description
         tags
-        flickrgallery
       }
     }
   }
