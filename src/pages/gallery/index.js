@@ -16,10 +16,6 @@ const Section = styled.section`
 
   article {
     grid-column: span 12;
-
-    a {
-      display: block;
-    }
   }
 `;
 

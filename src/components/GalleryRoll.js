@@ -6,12 +6,28 @@ import styled from "styled-components";
 
 const Header = styled.header`
   position: relative;
+  display: flex;
+  flex-flow: column;
+  height: 50vh;
+  min-height: 400px;
 
   a {
     font-size: 50px;
     font-weight: bold;
+    grid-column: span 12;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    width: 100%;
     text-transform: uppercase;
     text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
   }
 `;
 
