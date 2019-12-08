@@ -30,17 +30,20 @@ export const IndexPageTemplate = ({
         <h3>{subheading}</h3>
       </div>
     </div>
+
     <section>
       <div className="tile">
         <h1 className="title">{mainpitch.title}</h1>
         <h3 className="subtitle">{mainpitch.description}</h3>
       </div>
 
-      <h3>{heading}</h3>
-      <p>{description}</p>
-      <div className="flex">
-        <Features gridItems={intro.blurbs} />
+      <div className="tile">
+        <h3>{heading}</h3>
+        <p>{description}</p>
+      </div>
 
+      <div className="features">
+        <Features gridItems={intro.blurbs} />
         <Link className="btn" to="/products">
           See all products
         </Link>
