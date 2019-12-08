@@ -38,6 +38,13 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: "gatsby-source-flickr",
+      options: {
+        api_key: "bf898196079b6aac87ed4d1845d68297",
+        user_id: "meincken"
+      }
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {

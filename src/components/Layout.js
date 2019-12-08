@@ -14,6 +14,8 @@ const Main = styled.main`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 20px;
+  min-height: 100%;
+  flex: 1;
 `;
 
 const TemplateWrapper = ({ children }) => {

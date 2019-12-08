@@ -15,7 +15,6 @@ export const GalleryPostTemplate = ({
   contentComponent,
   flickrgallery,
   description,
-  tags,
   title,
   helmet
 }) => {
@@ -26,6 +25,7 @@ export const GalleryPostTemplate = ({
       {helmet || ""}
       <h1>{title}</h1>
       <p>{description}</p>
+      <p>{flickrgallery}</p>
       <GalleryPostContent content={content} />
     </Section>
   );
@@ -33,6 +33,7 @@ export const GalleryPostTemplate = ({
 
 GalleryPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
+  flickrgallery: PropTypes.string,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
@@ -48,6 +49,7 @@ const GalleryPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        flickrgallery={post.frontmatter.flickrgallery}
         helmet={
           <Helmet titleTemplate="%s | Gallery">
             <title>{`${post.frontmatter.title}`}</title>
@@ -78,6 +80,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        flickrgallery
         date(formatString: "MMMM DD, YYYY")
         title
         description

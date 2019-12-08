@@ -8,7 +8,6 @@ const Header = styled.header`
   position: relative;
   display: flex;
   flex-flow: column;
-  height: 50vh;
 
   > a {
     font-size: 50px;

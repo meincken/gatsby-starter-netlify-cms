@@ -32,6 +32,7 @@ var social = [
 const SocialLinks = styled.div`
   display: flex;
   justify-content: center;
+  grid-column: 3 / span 8;
 
   a {
     display: inline-block;

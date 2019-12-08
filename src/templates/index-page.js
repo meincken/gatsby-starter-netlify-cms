@@ -19,6 +19,20 @@ const HeroBlock = styled.div`
   margin-bottom: 20px;
   min-height: 400px;
   grid-column: span 12;
+
+  div {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      text-transform: uppercase;
+    }
+  }
 `;
 
 const Section = styled.section`
