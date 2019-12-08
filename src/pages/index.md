@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Art / Photography / Rantings
-image: /img/home-jumbotron.jpg
+image: /img/header-background.jpg
 heading: Great coffee with a conscience
 subheading: Front End Developer
 mainpitch:
@@ -68,3 +68,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+
