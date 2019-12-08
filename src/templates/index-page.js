@@ -1,143 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
-import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import GalleryRoll from "../components/GalleryRoll";
-
-const HeroBlock = styled.div`
-  background-postion: top left;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 25vh;
-  margin-bottom: 20px;
-  min-height: 400px;
-  grid-column: span 12;
-
-  div {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-
-    h1 {
-      text-transform: uppercase;
-    }
-  }
-`;
-
-const Section = styled.section`
-  grid-column: 3 / span 8;
-
-  .flex {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 20px;
-
-    max-width: 1100px;
-    width: 100vw;
-    margin: 0 auto;
-
-    .section-block {
-      margin-bottom: 40px;
-      grid-column: span 6;
-    }
-
-    a {
-      grid-column: span 12;
-    }
-  }
-`;
-
-const Blog = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 20px;
-  margin: 20px auto;
-
-  h3 {
-    grid-column: span 12;
-  }
-
-  header {
-    display: flex;
-    flex-flow: column;
-  }
-
-  article {
-    grid-column: span 4;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-
-    a {
-      grid-column: span 12;
-      display: block;
-      margin-top: 10px;
-      text-align: left;
-      text-decoration: none;
-    }
-  }
-
-  a {
-    grid-column: span 12;
-    text-align: center;
-    text-decoration: none;
-  }
-`;
-
-const Gallery = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 20px;
-  margin: 20px auto;
-
-  h3 {
-    grid-column: span 12;
-  }
-
-  header {
-    display: flex;
-    flex-flow: column;
-  }
-
-  article {
-    grid-column: span 6;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-
-    a {
-      grid-column: span 12;
-      display: block;
-      text-align: left;
-      text-decoration: none;
-      height: 100%;
-      position: absolute;
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      margin: 0;
-    }
-  }
-
-  a {
-    grid-column: span 12;
-    text-align: center;
-    text-decoration: none;
-  }
-`;
 
 export const IndexPageTemplate = ({
   image,
@@ -149,7 +17,8 @@ export const IndexPageTemplate = ({
   intro
 }) => (
   <>
-    <HeroBlock
+    <div
+      className="HeroBlock"
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
@@ -160,8 +29,8 @@ export const IndexPageTemplate = ({
         <h1>{title}</h1>
         <h3>{subheading}</h3>
       </div>
-    </HeroBlock>
-    <Section>
+    </div>
+    <section>
       <div className="tile">
         <h1 className="title">{mainpitch.title}</h1>
         <h3 className="subtitle">{mainpitch.description}</h3>
@@ -177,22 +46,22 @@ export const IndexPageTemplate = ({
         </Link>
       </div>
 
-      <Blog>
+      <div className="Blog">
         <h3>Latest stories</h3>
         <BlogRoll />
         <Link className="btn" to="/gallery">
           Read more
         </Link>
-      </Blog>
+      </div>
 
-      <Gallery>
+      <div className="Gallery">
         <h3>Gallery</h3>
         <GalleryRoll />
         <Link className="btn" to="/gallery">
           See more
         </Link>
-      </Gallery>
-    </Section>
+      </div>
+    </section>
   </>
 );
 

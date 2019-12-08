@@ -1,55 +1,34 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 var social = [
   {
     name: "twitter",
-    url: "http://twitter.com/meincken",
-    className: "twitter"
+    url: "http://twitter.com/meincken"
   },
   {
     name: "linkedin",
-    url: "https://www.linkedin.com/in/meincken/",
-    className: "linkedin"
+    url: "https://www.linkedin.com/in/meincken/"
   },
   {
     name: "instagram",
-    url: "http://instagram.com/meincken",
-    className: "instagram"
+    url: "http://instagram.com/meincken"
   },
   {
     name: "strava",
-    url: "https://www.strava.com/athletes/meincken",
-    className: "strava"
+    url: "https://www.strava.com/athletes/meincken"
   },
   {
     name: "github",
-    url: "http://github.com/meincken",
-    className: "github"
+    url: "http://github.com/meincken"
   }
 ];
-
-const SocialLinks = styled.div`
-  display: flex;
-  justify-content: center;
-  grid-column: 3 / span 8;
-
-  a {
-    display: inline-block;
-    margin: 0 10px;
-
-    svg {
-      max-width: 20px;
-      height: auto;
-    }
-  }
-`;
 
 const SocialBlock = ({ social }) => (
   <>
     {social.map(network => (
-      <a key={network.name} href={network.url}>
-        {network.className}
+      <a key={network.name} href={network.url} target="_blank">
+        <FontAwesomeIcon icon={["fab", network.name]} size="2x" />
       </a>
     ))}
   </>
@@ -59,9 +38,9 @@ class Social extends Component {
   render() {
     return (
       <>
-        <SocialLinks>
+        <div className="SocialLinks">
           <SocialBlock social={social} />
-        </SocialLinks>
+        </div>
       </>
     );
   }

@@ -4,11 +4,6 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-import styled from "styled-components";
-
-const Section = styled.section`
-  grid-column: 3 / span 12;
-`;
 
 export const GalleryPostTemplate = ({
   content,
@@ -21,13 +16,13 @@ export const GalleryPostTemplate = ({
   const GalleryPostContent = contentComponent || Content;
 
   return (
-    <Section>
+    <section>
       {helmet || ""}
       <h1>{title}</h1>
       <p>{description}</p>
       <p>{flickrgallery}</p>
       <GalleryPostContent content={content} />
-    </Section>
+    </section>
   );
 };
 

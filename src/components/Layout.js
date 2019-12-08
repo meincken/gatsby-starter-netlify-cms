@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import styled from "styled-components";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -10,13 +9,11 @@ import { GlobalStyle } from "../shared/Global";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
-const Main = styled.main`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 20px;
-  min-height: 100%;
-  flex: 1;
-`;
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fab);
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -61,7 +58,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
-      <Main>{children}</Main>
+      <main>{children}</main>
       <Footer />
     </>
   );

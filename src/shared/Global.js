@@ -95,12 +95,7 @@ export const bodyStyles = css`
 
   a {
     color: ${color.primary};
-  }
-
-  #gatsby-focus-wrapper {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+    transition: all 1s linear;
   }
 `;
 

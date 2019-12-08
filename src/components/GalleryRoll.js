@@ -2,32 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
-import styled from "styled-components";
-
-const Header = styled.header`
-  position: relative;
-  display: flex;
-  flex-flow: column;
-
-  > a {
-    font-size: 50px;
-    font-weight: bold;
-    grid-column: span 12;
-    display: block;
-    text-align: left;
-    text-decoration: none;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    width: 100%;
-    text-transform: uppercase;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 0;
-  }
-`;
 
 class GalleryRoll extends React.Component {
   render() {
@@ -44,7 +18,7 @@ class GalleryRoll extends React.Component {
                 post.frontmatter.featuredpost ? " is-featured" : ""
               }`}
             >
-              <Header>
+              <header>
                 {post.frontmatter.featuredimage ? (
                   <PreviewCompatibleImage
                     imageInfo={{
@@ -56,7 +30,7 @@ class GalleryRoll extends React.Component {
                 <Link className="title" to={post.fields.slug}>
                   {post.frontmatter.title}
                 </Link>
-              </Header>
+              </header>
             </article>
           ))}
       </>
