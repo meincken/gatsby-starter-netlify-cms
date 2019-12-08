@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Art / Photography / Rantings
+title: Art | Photography | Rantings
 image: /img/header-background.jpg
 heading: Great coffee with a conscience
 subheading: Front End Developer
