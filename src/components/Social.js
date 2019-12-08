@@ -27,7 +27,12 @@ var social = [
 const SocialBlock = ({ social }) => (
   <>
     {social.map(network => (
-      <a key={network.name} href={network.url} target="_blank">
+      <a
+        key={network.name}
+        href={network.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <FontAwesomeIcon icon={["fab", network.name]} size="2x" />
       </a>
     ))}
