@@ -2,8 +2,8 @@
 templateKey: index-page
 title: Art | Photography | Rantings
 image: /img/header-background.jpg
-heading: Great coffee with a conscience
-subheading: Front End Developer
+heading: Meincken.com
+subheading: Home of everything but my web stuff.
 mainpitch:
   title: Why Me
   description: >
