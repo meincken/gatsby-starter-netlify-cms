@@ -14,6 +14,7 @@ about:
     adventures around the world including trips into the hot zone of Chernobyl
     as well as Vietnam, Cambodia and Borneo (this is the short list).
 
+    <br />
 
     I started meincken.com as a portfolio for my photography about 10 years ago,
     which then evolved into my web portfolio but since the incarnation of my
