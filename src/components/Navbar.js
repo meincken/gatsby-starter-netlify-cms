@@ -11,6 +11,7 @@ const Nav = styled.nav`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 30px;
+  padding: 10px 0;
   top: 0;
   z-index: 99999;
 `;

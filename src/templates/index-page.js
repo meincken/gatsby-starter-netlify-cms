@@ -58,6 +58,20 @@ const Blog = styled.div`
   }
 `;
 
+const Gallery = styled.div`
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(12, 1fr);
+
+  > .tile {
+    grid-column: span 6;
+  }
+
+  > a {
+    grid-column: span 12;
+  }
+`;
+
 const Heading3 = styled.h3`
   grid-column: span 12;
 `;
@@ -67,7 +81,7 @@ export const IndexPageTemplate = ({
   title,
   heading,
   subheading,
-  mainpitch,
+  about,
   description,
   intro
 }) => (
@@ -87,13 +101,8 @@ export const IndexPageTemplate = ({
 
     <Section>
       <div className="tile">
-        <h1 className="title">{mainpitch.title}</h1>
-        <h3 className="subtitle">{mainpitch.description}</h3>
-      </div>
-
-      <div className="tile">
-        <Heading3>{heading}</Heading3>
-        <p>{description}</p>
+        <h1 className="title">{about.title}</h1>
+        <h3 className="subtitle">{about.description}</h3>
       </div>
 
       <FeaturesBlock>
@@ -111,13 +120,13 @@ export const IndexPageTemplate = ({
         </Link>
       </Blog>
 
-      <div className="Gallery">
+      <Gallery>
         <Heading3>Gallery</Heading3>
         <GalleryRoll />
         <Link className="btn" to="/gallery">
           See more
         </Link>
-      </div>
+      </Gallery>
     </Section>
   </>
 );
@@ -127,7 +136,7 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
+  about: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -144,7 +153,7 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
+        about={frontmatter.about}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
@@ -176,9 +185,16 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
+        about {
           title
           description
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         description
         intro {
