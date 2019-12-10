@@ -6,6 +6,61 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import GalleryRoll from "../components/GalleryRoll";
+import styled from "styled-components";
+
+const HeroBlock = styled.header`
+  background-size: cover;
+  background-position: center;
+  grid-column: span 12;
+  height: 100vh;
+`;
+
+const HeroBlockInner = styled.div`
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+`;
+
+const Section = styled.section`
+  grid-column: 3 / span 8;
+`;
+
+const FeaturesBlock = styled.div`
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(12, 1fr);
+
+  > section {
+    grid-column: span 4;
+  }
+
+  a {
+    grid-column: span 12;
+    text-align: center;
+  }
+`;
+
+const Blog = styled.div`
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(12, 1fr);
+
+  > .tile {
+    grid-column: span 4;
+  }
+
+  > a {
+    grid-column: span 12;
+  }
+`;
+
+const Heading3 = styled.h3`
+  grid-column: span 12;
+`;
 
 export const IndexPageTemplate = ({
   image,
@@ -17,54 +72,53 @@ export const IndexPageTemplate = ({
   intro
 }) => (
   <>
-    <div
-      className="HeroBlock"
+    <HeroBlock
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`
       }}
     >
-      <div>
+      <HeroBlockInner>
         <h1>{title}</h1>
         <h3>{subheading}</h3>
-      </div>
-    </div>
+      </HeroBlockInner>
+    </HeroBlock>
 
-    <section>
+    <Section>
       <div className="tile">
         <h1 className="title">{mainpitch.title}</h1>
         <h3 className="subtitle">{mainpitch.description}</h3>
       </div>
 
       <div className="tile">
-        <h3>{heading}</h3>
+        <Heading3>{heading}</Heading3>
         <p>{description}</p>
       </div>
 
-      <div className="features">
+      <FeaturesBlock>
         <Features gridItems={intro.blurbs} />
         <Link className="btn" to="/products">
           See all products
         </Link>
-      </div>
+      </FeaturesBlock>
 
-      <div className="Blog">
-        <h3>Latest stories</h3>
+      <Blog>
+        <Heading3>Latest stories</Heading3>
         <BlogRoll />
         <Link className="btn" to="/gallery">
           Read more
         </Link>
-      </div>
+      </Blog>
 
       <div className="Gallery">
-        <h3>Gallery</h3>
+        <Heading3>Gallery</Heading3>
         <GalleryRoll />
         <Link className="btn" to="/gallery">
           See more
         </Link>
       </div>
-    </section>
+    </Section>
   </>
 );
 

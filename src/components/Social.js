@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
+
+const SocialLinks = styled.div`
+  display: flex;
+  grid-column: 6 / span 2;
+  justify-content: space-between;
+`;
 
 var social = [
   {
@@ -42,11 +49,9 @@ const SocialBlock = ({ social }) => (
 class Social extends Component {
   render() {
     return (
-      <>
-        <div className="SocialLinks">
-          <SocialBlock social={social} />
-        </div>
-      </>
+      <SocialLinks>
+        <SocialBlock social={social} />
+      </SocialLinks>
     );
   }
 }

@@ -17,6 +17,7 @@ export const color = {
   lightest: "#FFF",
   lighter: "#e1e1e1",
   darkest: "#1e1e1e",
+  black: "#000",
 
   border: "rgba(0,0,0,.1)",
 

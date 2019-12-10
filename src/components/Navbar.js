@@ -1,6 +1,34 @@
 import React from "react";
 import { Link } from "gatsby";
 import Logo from "../img/logo.svg";
+import styled from "styled-components";
+import { color } from "./../shared/styles";
+
+const Nav = styled.nav`
+  background: ${color.black};
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 30px;
+  top: 0;
+  z-index: 99999;
+`;
+
+const NavBarBrand = styled.div`
+  grid-column: 6 / span 2;
+`;
+
+const NavBarMenu = styled.div`
+  display: flex;
+  grid-column: 6 / span 2;
+  justify-content: space-between;
+
+  > a {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+`;
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -33,28 +61,18 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-      <nav
+      <Nav
         className="is-transparent"
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="NavBarBrand">
+        <NavBarBrand>
           <Link to="/" className="navbar-item" title="Logo">
-            <Logo />
+            <Logo fill={color.primary} />
           </Link>
-          {/* Hamburger menu */}
-          <div
-            className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-            data-target="navMenu"
-            onClick={() => this.toggleHamburger()}
-          >
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
+        </NavBarBrand>
 
-        <div className="NavBarMenu" id="navMenu">
+        <NavBarMenu id="navMenu">
           <Link className="navbar-item" to="/about">
             About
           </Link>
@@ -64,8 +82,8 @@ const Navbar = class extends React.Component {
           <Link className="navbar-item" to="/gallery">
             Gallery
           </Link>
-        </div>
-      </nav>
+        </NavBarMenu>
+      </Nav>
     );
   }
 };

@@ -17,7 +17,7 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section>
+    <>
       {helmet || ""}
       <article>
         <header>
@@ -40,7 +40,7 @@ export const BlogPostTemplate = ({
           ) : null}
         </footer>
       </article>
-    </section>
+    </>
   );
 };
 
