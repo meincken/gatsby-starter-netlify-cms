@@ -6,9 +6,6 @@ heading: Meincken.com
 subheading: Home of everything but my web stuff.
 about:
   description: >-
-    ![image](/img/blog-index.jpg "image")
-
-
     <p>My name is Nick Meincken, I’m a web developer living in West London. I
     live in a cozy house with my wife Gayle and our 2 cats Truffles and
     Toblerone. When I’m not training for my next event, I’m building websites or
