@@ -24,7 +24,7 @@ about:
     Over the next few months I will be sorting through my past photography and
     art to get this all up here.</p>
   title: About Me
-  image: /img/blog-index.jpg
+  image: /img/nickmeincken0070.jpg
 intro:
   blurbs:
     - image: /img/coffee.png
